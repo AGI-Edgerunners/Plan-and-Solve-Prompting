@@ -1,3 +1,4 @@
+import json
 import os
 from collections import Counter
 import openai
@@ -23,7 +24,9 @@ if not os.path.exists(f'{Result_Folder}/{args.dataset}'):
 
 def zero_shot_cot():
     correct = 0
-    apikey = args.openai_apikey
+    apikey_list = json.load(open('apikeys.json', 'r', encoding='utf-8'))
+    assert len(apikey_list) >= 1
+    apikey = apikey_list[0]
     question, answer, ids = load_data(args)
     _, prompt = get_prompt()
     for idx, element in enumerate(question):

@@ -4,7 +4,7 @@ import openai
 
 
 def decoder_for_gpt3(args, input, max_length, apikey):
-    openai.api_key = apikey
+    # openai.api_key = apikey
     engine = args.engine
     top_p = 1
     frequency_penalty = 0
@@ -22,7 +22,8 @@ def decoder_for_gpt3(args, input, max_length, apikey):
         frequency_penalty=frequency_penalty,
         presence_penalty=presence_penalty,
         n=n,
-        stop=stop
+        stop=stop,
+        api_key=apikey
     )
     if max_length != 32 and not args.SC:
         return response["choices"][0]['text']

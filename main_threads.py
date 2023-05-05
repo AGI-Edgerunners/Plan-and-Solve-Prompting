@@ -270,7 +270,7 @@ def zero_shot_cot():
     avr_nums = int(len(question) / 8)
     thread_list = []
     apikey_list = json.load(open('apikeys.json', 'r', encoding='utf-8'))
-    assert len(apikey_list) == 8
+    assert len(apikey_list) >= 8
     for i in range(8):
         if i == 7:
             thread_list.append(

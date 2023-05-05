@@ -36,9 +36,6 @@ def parse_arguments():
         choices=["text-davinci-002", "text-davinci-003", "code-davinci-002"]
     )
     parser.add_argument(
-        "--openai_apikey", default=None, required=True, help="an access token of OpenAI API"
-    )
-    parser.add_argument(
         "--test_start", default='0', help='string, number'
     )
     parser.add_argument(
@@ -59,9 +56,6 @@ def parse_arguments():
     )
     parser.add_argument(
         "--SC", default=False, type=bool, help="self consistency"
-    )
-    parser.add_argument(
-        "--flag", default=False, type=bool
     )
     parser.add_argument(
         '--answer_extracting_prompt', default='Therefore,the answer is', type=str
