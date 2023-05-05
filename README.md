@@ -13,7 +13,7 @@ python main.py --prompt_id 324 \
 ## run experiment with threads
 Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
-python main.py --prompt_id 324 \
+python main_threads.py --prompt_id 324 \
 --dataset SVAMP \
 --engine text-davinci-003 \
 --learning_type zero_shot
