@@ -2,6 +2,8 @@ import os
 import threading
 from collections import Counter
 
+import openai
+
 from config import args
 from extracter import extract_answer, get_precision
 from prompt import get_prompt, construct_input
@@ -13,8 +15,8 @@ Result_Folder = 'result/{}'.format(now)
 # Result_Folder = 'result'
 if not os.path.exists(Result_Folder):
     os.mkdir(Result_Folder)
-Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.task_id}-{args.engine}_deco.json'
-Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.task_id}-{args.engine}.json'
+Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
+Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
 if not os.path.exists(f'{Result_Folder}/{args.dataset}'):
     os.mkdir(f'{Result_Folder}/{args.dataset}')
 
@@ -142,6 +144,12 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                     Predict_File_Lock.acquire()
                     write_json(json_data, Predict_File)
                     Predict_File_Lock.release()
+                    Correct_Lock.acquire()
+                    Global_Correct += 1
+                    Correct_Lock.release()
+                    Total_Lock.acquire()
+                    Global_Total += 1
+                    Total_Lock.release()
                 else:
                     json_data = {
                         "ID": ids[idx],
@@ -154,6 +162,9 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                     Predict_File_Lock.acquire()
                     write_json(json_data, Predict_File)
                     Predict_File_Lock.release()
+                    Total_Lock.acquire()
+                    Global_Total += 1
+                    Total_Lock.release()
             else:
                 if isinstance(pred_answer, float) and isinstance(answer[idx], float):
                     precision = min(get_precision(pred_answer), get_precision(answer[idx]))
@@ -171,6 +182,12 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                         Predict_File_Lock.acquire()
                         write_json(json_data, Predict_File)
                         Predict_File_Lock.release()
+                        Correct_Lock.acquire()
+                        Global_Correct += 1
+                        Correct_Lock.release()
+                        Total_Lock.acquire()
+                        Global_Total += 1
+                        Total_Lock.release()
                     else:
                         ans = False
                         json_data = {
@@ -184,6 +201,9 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                         Predict_File_Lock.acquire()
                         write_json(json_data, Predict_File)
                         Predict_File_Lock.release()
+                        Total_Lock.acquire()
+                        Global_Total += 1
+                        Total_Lock.release()
                 else:
                     if pred_answer == answer[idx]:
                         correct += 1
@@ -199,6 +219,12 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                         Predict_File_Lock.acquire()
                         write_json(json_data, Predict_File)
                         Predict_File_Lock.release()
+                        Correct_Lock.acquire()
+                        Global_Correct += 1
+                        Correct_Lock.release()
+                        Total_Lock.acquire()
+                        Global_Total += 1
+                        Total_Lock.release()
                     else:
                         json_data = {
                             "ID": ids[idx],
@@ -211,6 +237,9 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                         Predict_File_Lock.acquire()
                         write_json(json_data, Predict_File)
                         Predict_File_Lock.release()
+                        Total_Lock.acquire()
+                        Global_Total += 1
+                        Total_Lock.release()
         else:
             json_data = {
                 "ID": ids[idx],
@@ -223,6 +252,9 @@ def thread_task(datas: tuple, args, thread_id, apikey):
             Predict_File_Lock.acquire()
             write_json(json_data, Predict_File)
             Predict_File_Lock.release()
+            Total_Lock.acquire()
+            Global_Total += 1
+            Total_Lock.release()
         print(
             'thread:{} correct:{} tested:{} {} total:{} global correct/total:{}/{}'.format(thread_id, correct, idx + 1,
                                                                                            correct / (idx + 1),

@@ -56,4 +56,6 @@ def basic_runner(args, inputs, max_length, apikey, max_retry=3):
             else:
                 error_msg = e.user_message
                 break
+        except Exception as e:
+            raise e
     return get_result, pred, error_msg
