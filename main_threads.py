@@ -10,15 +10,16 @@ from prompt import get_prompt, construct_input
 from prediction_runner import basic_runner
 from utils import *
 
+
+
 now = print_now(1).split(' ')[0].replace('/', '-')
+mkpath('result')
 Result_Folder = 'result/{}'.format(now)
 # Result_Folder = 'result'
-if not os.path.exists(Result_Folder):
-    os.mkdir(Result_Folder)
+mkpath(Result_Folder)
 Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
 Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
-if not os.path.exists(f'{Result_Folder}/{args.dataset}'):
-    os.mkdir(f'{Result_Folder}/{args.dataset}')
+mkpath(f'{Result_Folder}/{args.dataset}')
 
 Decoder_Error_File_Lock = threading.Lock()
 Predict_File_Lock = threading.Lock()

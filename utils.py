@@ -3,9 +3,13 @@ import datetime
 import numpy as np
 import random
 import torch
+import os
 
 Dataset_Folder = 'dataset'
 
+def mkpath(path):
+    if not os.path.exists(path):
+        os.mkdir(path)
 
 def print_now(return_flag=0):
     t_delta = datetime.timedelta(hours=9)

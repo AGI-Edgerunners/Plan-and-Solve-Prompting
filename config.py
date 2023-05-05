@@ -29,7 +29,7 @@ def parse_arguments():
                  "last_letters", "FinQA", "TATQA", "ConvFinQA", "StrategyQA"]
     )
     parser.add_argument(
-        "--prompt_id", default='350', help='string'
+        "--prompt_id", default='324', help='string'
     )
     parser.add_argument(
         "--engine", default='text-davinci-003', help="text-davinci-002,text-davinci-003,code-davinci-002",
