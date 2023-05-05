@@ -96,7 +96,7 @@ def create_demo_text():
 
 Few_Shot_Demo_Folder = 'few_shot_demos/'
 
-prompt_13 = 'Let\'s think step by step.'
+prompt_13 = "Let's think step by step."
 
 prompt_310 = 'Extract variables and their corresponding numerals first. Then solve the problem step by step.'
 prompt_311 = 'Extract objects ans their corresponding numerals first. Then solve the problem step by step.'
@@ -116,8 +116,8 @@ prompt_322 = 'Firstly, extract variables and their corresponding numerals. Then,
              'Finally, solve the problem step by step. '
 prompt_323 = 'Firstly, extract relevant variables, memorize the change of these variables, and update them. Then, ' \
              'solve the problem step by step. '
-prompt_324 = 'Let\'s first understand the problem and devise a plan to sovle the problem. ' \
-             'Then, let\'s carry out the plan to solve the problem step by step.'
+prompt_324 = "Let's first understand the problem and devise a plan to solve the problem. " \
+             "Then, let's carry out the plan to solve the problem step by step."
 prompt_325 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a plan. ' \
              'Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numeral calculation and commonsense), solve the problem step by step, and show the answer. '
 prompt_326 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan.' \
