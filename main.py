@@ -60,7 +60,7 @@ def zero_shot_cot():
                 else:
                     inputs2 = input_ + ' ' + args.direct_answer_trigger_for_direct
                     try:
-                        get_result, pred3, error_msg = basic_runner(args, inputs2, args.max_length_cot, apikey)
+                        get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
                     except:
                         decode_error_data = {
                             'question': question[idx]
@@ -89,7 +89,7 @@ def zero_shot_cot():
             else:
                 inputs2 = inputs + pred + ' ' + args.direct_answer_trigger_for_direct
                 try:
-                    get_result, pred3, error_msg = basic_runner(args, inputs2, args.max_length_cot, apikey)
+                    get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
                 except:
                     decode_error_data = {
                         'question': question[idx]
@@ -225,7 +225,7 @@ def few_shot_cot():
         else:
             inputs2 = inputs + pred + ' ' + args.direct_answer_trigger_for_direct
             try:
-                get_result, pred3, error_msg = basic_runner(args, inputs2, args.max_length_cot, apikey)
+                get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
             except:
                 decode_error_data = {
                     'question': question[idx]

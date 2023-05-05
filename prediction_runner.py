@@ -9,8 +9,8 @@ def decoder_for_gpt3(args, input, max_length, apikey):
     top_p = 1
     frequency_penalty = 0
     presence_penalty = 0
-    temperature = 0.7 if args.SC else 0.0
-    n = 10 if args.SC else 1
+    temperature = 0.7 if args.SC and max_length != 32 else 0.0
+    n = 10 if args.SC and max_length != 32 else 1
     stop = ["\n\n"] if max_length == 32 else None
 
     response = openai.Completion.create(
@@ -25,9 +25,9 @@ def decoder_for_gpt3(args, input, max_length, apikey):
         stop=stop,
         api_key=apikey
     )
-    if max_length != 32 and not args.SC:
+    if max_length == 32 or not args.SC:
         return response["choices"][0]['text']
-    elif args.engine in ['text-davinci-003'] and args.SC:
+    elif max_length != 32 and args.SC:
         text = response["choices"]
         tem_rational = []
         for i in range(len(text)):
