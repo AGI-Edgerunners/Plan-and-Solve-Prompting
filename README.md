@@ -4,7 +4,7 @@ Improving Zero-Shot Chain-of-Though Reasoning in Large Language Models
 ## run experiment
 Set an api-key of OpenAI API in the file ```apikeys.json```
 ```shell
-python main.py --prompt_id 310 \
+python main.py --prompt_id 324 \
 --dataset SVAMP \
 --engine text-davinci-003 \
 --learning_type zero_shot
@@ -13,7 +13,7 @@ python main.py --prompt_id 310 \
 ## run experiment with threads
 Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
-python main.py --prompt_id 310 \
+python main.py --prompt_id 324 \
 --dataset SVAMP \
 --engine text-davinci-003 \
 --learning_type zero_shot
