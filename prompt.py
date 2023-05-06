@@ -113,15 +113,13 @@ prompt_316 = 'Step 1: Extract variables and their corresponding numerals;\nStep 
 prompt_321 = 'Firstly, extract variables and their corresponding numerals. Then, calculate intermediate variables. ' \
              'Finally, solve the problem step by step. '
 prompt_322 = 'Firstly, extract variables and their corresponding numerals. Then, calculate intermediate variables. ' \
-             'Finally, solve the problem step by step. '
+             'Finally, solve the problem step by step.'
 prompt_323 = 'Firstly, extract relevant variables, memorize the change of these variables, and update them. Then, ' \
              'solve the problem step by step. '
 prompt_324 = "Let's first understand the problem and devise a plan to solve the problem. " \
              "Then, let's carry out the plan to solve the problem step by step."
-prompt_325 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a plan. ' \
-             'Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numeral calculation and commonsense), solve the problem step by step, and show the answer. '
-prompt_326 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan.' \
-             'Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.'
+prompt_325 = "Let's first understand the problem, extract relevant variables and their corresponding numerals, and devise a plan. Then, let's carry out the plan, calculate intermediate variables (pay attention to correct numeral calculation and commonsense), solve the problem step by step, and show the answer."
+prompt_326 = "Let's first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan. Then, let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer."
 prompt_327 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan. ' \
              'Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.'
 prompt_328 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan.Then, let\'s carry out the plan, calculate intermediate variables (pay attention to the correctness of the calculation and common sense), solve the problem step by step, and show the answer.'
@@ -129,7 +127,7 @@ prompt_329 = 'Let\'s first understand the problem and devise a plan to solve the
 prompt_330 = 'Let\'s first understand the problem, extract relevant correct variables and their correct corresponding numerals, and devise a complete plan. Then, let\'s carry out the plan, calculate intermediate variables included extracted variables(pay attention to correct numerical calculation and commonsense), solve the problem by single equations, and show the answer.'
 prompt_331 = 'Let\'s first understand the problem, extract relevant correct variables and their correct corresponding numerals, and devise complete plans. Then, let\'s carry out the plan, calculate intermediate variables including extracted variables(pay attention to correct numerical calculation and common sense), solve the problem by single equations, and show the answer.'
 prompt_332 = 'Let\'s devise a complete plan. Then, let\'s carry out the plan, solve the problem step by step, and show the answer.'
-prompt_333 = 'Let\'s devise a plan and solve the problem step by step.'
+prompt_333 = "Let's devise a plan and solve the problem step by step."
 prompt_334 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a plan. Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and common sense), solve the problem step by step(pay attention to calculation), and show the answe'
 prompt_335 = 'Let\'s first understand the problem, extract relevant variables and their corresponding numerals, and devise a complete plan. Then, let\'s carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and common sense), solve the problem step by step carefully, and show the answer.'
 prompt_336 = 'Let\'s first understand the problem, extract all relevant  variables and their corresponding numerals carefully, and devise a plan. Then, let\'s carry out the plan, calculate intermediate variables(pay attention to correct numerical calculation and common sense), solve the problem step by step carefully, and show the answer.'
@@ -144,10 +142,10 @@ prompt_343 = 'Let\'s first devise a plan, then solve the problem step by step.(D
 prompt_344 = 'Let\'s first devise a plan, then solve the problem step by step.'
 prompt_345 = 'Let\'s first understand the problem and devise a complete plan.Then, let\'s carry out the plan, reason problem step by step. Every step answer the subquestion "does the person flip and what is the coin current state?", and according to the coin last state give the final answer(pay attention to every flip, the coin turns state). \n\nPlan: \nStep 1:'
 prompt_346 = 'Let\'s first understand the problem and devise a complete plan.Then, let\'s carry out the plan, reason problem step by step. Every step answer the subquestion "does the person flip and what is the coin current state?", and according to the last coin state, give the final answer(pay attention that the coin turns state at every flip). \n\nPlan: \nStep 1:'
-prompt_347 = 'Let\'s first understand the problem and devise a complete plan. Then, let\'s carry out the plan and reason problem step by step. Every step answer the subquestion, "does the person flip and what is the coin\'s current state?". According to the coin\'s last state, give the final answer (pay attention to every flip and the coin’s turning state).'
+prompt_347 = "Let's first understand the problem and devise a complete plan. Then, let\'s carry out the plan and reason problem step by step. Every step answer the subquestion, \"does the person flip and what is the coin's current state?\". According to the coin's last state, give the final answer (pay attention to every flip and the coin’s turning state)."
 prompt_348 = 'Let\'s first assume the answer is \'yes\', then devise a plan to reason the answer\'s correctness.'
 prompt_349 = 'Let\'s devise a plan and think the problem step by step according to normal people\'s thought.'
-prompt_350 = 'Let\'s first understand the problem, extract relevant variables and  their corresponding numerals, and make a complete plan.Then,  let\'s carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.'
+prompt_350 = "Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer."
 prompt_351 = 'Let\'s start with answering yes or no. Then make a plan to reason the answer step by step.'
 prompt_352 = 'Let\'s make a plan and reason the question step by step.'
 prompt_353 = 'Let\'s first prepare relevant information and make a plan. Then, let\'s answer the question step by step (pay attention to commonsense and logical coherence).'
