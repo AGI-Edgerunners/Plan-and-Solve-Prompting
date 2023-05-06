@@ -20,9 +20,9 @@ python main_threads.py --prompt_id 201 \
 ```
 
 ## prompt
-<table>
+<table style="text-align: center">
 <tr>
-<td>prompt id</td>
+<td style="width: 90px">prompt id</td>
 <td>type</td>
 <td>prompt text</td>
 </tr>
