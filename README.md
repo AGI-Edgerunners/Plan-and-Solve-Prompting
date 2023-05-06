@@ -54,7 +54,7 @@ python main_threads.py --prompt_id 201 \
 <tr align="center">
 <td>304</td>
 <td>PS+</td>
-<td align="left">Let's first understand the problem and devise a complete plan. Then, let\'s carry out the plan and reason problem step by step. Every step answer the subquestion, \"does the person flip and what is the coin's current state?\". According to the coin's last state, give the final answer (pay attention to every flip and the coin’s turning state).</td>
+<td align="left">Let's first understand the problem and devise a complete plan. Then, let's carry out the plan and reason problem step by step. Every step answer the subquestion, \"does the person flip and what is the coin's current state?\". According to the coin's last state, give the final answer (pay attention to every flip and the coin’s turning state).</td>
 </tr>
 <tr align="center">
 <td>305</td>
