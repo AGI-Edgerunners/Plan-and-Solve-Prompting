@@ -22,7 +22,7 @@ python main_threads.py --prompt_id 201 \
 ## prompt
 <table style="text-align: center">
 <tr>
-<td style="width: 90px">prompt id</td>
+<td>prompt_id</td>
 <td>type</td>
 <td>prompt text</td>
 </tr>
