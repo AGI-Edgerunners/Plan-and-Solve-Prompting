@@ -113,13 +113,13 @@ prompt_304 = "Let's first understand the problem and devise a complete plan. " \
              "\"does the person flip and what is the coin's current state?\". According to the coin's last state, " \
              "give the final answer (pay attention to every flip and the coin’s turning state)."
 prompt_305 = "Let's first understand the problem, extract relevant variables and  their corresponding numerals, " \
-             "and make a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay " \
+             "and make a complete plan. Then, let's carry out the plan, calculate intermediate variables (pay " \
              "attention to correct numerical calculation and commonsense), " \
              "solve the problem step by step, and show the answer."
 prompt_306 = "Let's first prepare relevant information and make a plan. Then, let's answer the question step by step " \
              "(pay attention to commonsense and logical coherence)."
-prompt_307 = "Let's first understand the problem, extract relevant variables and  their corresponding numerals, " \
-             "and make and devise a complete plan.Then,  let's carry out the plan, calculate intermediate variables " \
+prompt_307 = "Let's first understand the problem, extract relevant variables and their corresponding numerals, " \
+             "and make and devise a complete plan. Then, let's carry out the plan, calculate intermediate variables " \
              "(pay attention to correct numerical calculation and commonsense), " \
              "solve the problem step by step, and show the answer."
 
