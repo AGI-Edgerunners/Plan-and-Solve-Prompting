@@ -22,6 +22,8 @@ python main_threads.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
+![showcase_ps_prompting_exp](math-cot-exp.png)
+
 ## :cook: Prompts
 <table align="center">
 <tr>
