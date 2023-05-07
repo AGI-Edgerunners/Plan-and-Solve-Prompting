@@ -61,7 +61,7 @@ python main_threads.py --prompt_id 201 \
 <tr align="center">
 <td>305</td>
 <td>PS+</td>
-<td align="left">Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
+<td align="left">Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make a complete plan. Then, let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
 </tr>
 <tr align="center">
 <td>306</td>
@@ -71,7 +71,7 @@ python main_threads.py --prompt_id 201 \
 <tr align="center">
 <td>307</td>
 <td>PS+</td>
-<td align="left">Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make and devise a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
+<td align="left">Let's first understand the problem, extract relevant variables and their corresponding numerals, and make and devise a complete plan. Then, let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
 </tr>
 </table>
 
