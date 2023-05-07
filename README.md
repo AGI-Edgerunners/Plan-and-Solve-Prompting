@@ -12,7 +12,7 @@ python main.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## Run Plan-and-Solve-Prompting with threads
+## :robot: Run Plan-and-Solve-Prompting with threads
 Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
 python main_threads.py --prompt_id 201 \
@@ -21,7 +21,7 @@ python main_threads.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## Prompts
+## :cook: Prompts
 <table align="center">
 <tr>
 <th>prompt_id</th>
@@ -79,7 +79,7 @@ python main_threads.py --prompt_id 201 \
 
 [![Star History Chart](https://api.star-history.com/svg?repos=AGI-Edgerunners/Plan-and-Solve-Prompting&type=Date)](https://star-history.com/#AGI-Edgerunners/Plan-and-Solve-Prompting&Date)
 
-## Cite
+## 👏 Cite
 
 If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
 
