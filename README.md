@@ -1,5 +1,7 @@
 # Plan-and-Solve-Prompting
-Improving Zero-Shot Chain-of-Though Reasoning in Large Language Models
+
+Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
+
 
 ## run experiment
 Set an api-key of OpenAI API in the file ```apikeys.json```
