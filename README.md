@@ -74,3 +74,17 @@ python main_threads.py --prompt_id 201 \
 <td align="left">Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make and devise a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
 </tr>
 </table>
+
+## :star: Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=AGI-Edgerunners/Plan-and-Solve-Prompting&type=Date)](https://star-history.com/#AGI-Edgerunners/Plan-and-Solve-Prompting&Date)
+
+## Cite
+
+If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
+
+```latex
+
+```
+
+
