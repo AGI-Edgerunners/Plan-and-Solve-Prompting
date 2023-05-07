@@ -79,7 +79,7 @@ python main_threads.py --prompt_id 201 \
 
 [![Star History Chart](https://api.star-history.com/svg?repos=AGI-Edgerunners/Plan-and-Solve-Prompting&type=Date)](https://star-history.com/#AGI-Edgerunners/Plan-and-Solve-Prompting&Date)
 
-## 👏 Cite
+## :smile_cat: Cite
 
 If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
 
