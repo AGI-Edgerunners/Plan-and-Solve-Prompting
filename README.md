@@ -3,7 +3,7 @@
 Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
 
 
-## Run Plan-and-Solve-Prompting
+## :robot: Run Plan-and-Solve-Prompting
 Set an api-key of OpenAI API in the file ```apikeys.json```
 ```shell
 python main.py --prompt_id 201 \
