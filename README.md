@@ -3,7 +3,7 @@
 Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
 
 
-## run experiment
+## Run Plan-and-Solve-Prompting
 Set an api-key of OpenAI API in the file ```apikeys.json```
 ```shell
 python main.py --prompt_id 201 \
@@ -12,7 +12,7 @@ python main.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## run experiment with threads
+## Run Plan-and-Solve-Prompting with threads
 Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
 python main_threads.py --prompt_id 201 \
@@ -21,7 +21,7 @@ python main_threads.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## prompt
+## Prompts
 <table align="center">
 <tr>
 <th>prompt_id</th>
