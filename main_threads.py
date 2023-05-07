@@ -345,7 +345,6 @@ class TaskThread(threading.Thread):
 
 
 if __name__ == '__main__':
-    openai.proxy = '127.0.0.1:4780'
     print_exp(args)
     alls = zero_shot_cot()
     print(alls)
