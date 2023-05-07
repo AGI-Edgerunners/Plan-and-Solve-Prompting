@@ -64,6 +64,10 @@ def zero_shot_cot():
             )
             continue
         if not get_result:
+            logger.warning(
+                f"not get predicted result (question id: {ids[idx]})."
+                f"ERROR Message: {error_msg if error_msg else None}"
+            )
             continue
         if args.SC:
             answer_list = []
@@ -93,6 +97,10 @@ def zero_shot_cot():
                         )
                         continue
                     if not get_result:
+                        logger.warning(
+                            f"not get predicted result (question id: {ids[idx]})."
+                            f"ERROR Message: {error_msg if error_msg else None}"
+                        )
                         continue
                     try:
                         pred_answer1 = extract_answer(args, pred3)
@@ -126,6 +134,10 @@ def zero_shot_cot():
                     )
                     continue
                 if not get_result:
+                    logger.warning(
+                        f"not get predicted result (question id: {ids[idx]})."
+                        f"ERROR Message: {error_msg if error_msg else None}"
+                    )
                     continue
                 try:
                     pred_answer = extract_answer(args, pred3)
