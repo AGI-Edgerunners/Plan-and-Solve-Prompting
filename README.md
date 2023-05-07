@@ -1,7 +1,9 @@
-# Plan-and-Solve-Prompting
-Improving Zero-Shot Chain-of-Though Reasoning in Large Language Models
+# 📝 Plan-and-Solve-Prompting
 
-## run experiment
+Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
+
+
+## :robot: Run Plan-and-Solve-Prompting
 Set an api-key of OpenAI API in the file ```apikeys.json```
 ```shell
 python main.py --prompt_id 201 \
@@ -10,7 +12,7 @@ python main.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## run experiment with threads
+## :robot: Run Plan-and-Solve-Prompting with threads
 Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
 python main_threads.py --prompt_id 201 \
@@ -19,7 +21,7 @@ python main_threads.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
-## prompt
+## :cook: Prompts
 <table align="center">
 <tr>
 <th>prompt_id</th>
@@ -72,3 +74,17 @@ python main_threads.py --prompt_id 201 \
 <td align="left">Let's first understand the problem, extract relevant variables and  their corresponding numerals, and make and devise a complete plan.Then,  let's carry out the plan, calculate intermediate variables (pay attention to correct numerical calculation and commonsense), solve the problem step by step, and show the answer.</td>
 </tr>
 </table>
+
+## :star: Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=AGI-Edgerunners/Plan-and-Solve-Prompting&type=Date)](https://star-history.com/#AGI-Edgerunners/Plan-and-Solve-Prompting&Date)
+
+## :smile_cat: Cite
+
+If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
+
+```latex
+
+```
+
+
