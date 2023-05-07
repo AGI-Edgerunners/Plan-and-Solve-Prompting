@@ -1,5 +1,7 @@
 import json
 import os
+import warnings
+import logging
 from collections import Counter
 import openai
 
@@ -7,19 +9,34 @@ from config import args
 from extracter import get_precision, extract_answer
 from prompt import get_prompt, construct_input
 from prediction_runner import basic_runner
-from utils import write_json, print_now, load_data, print_exp
+from utils import write_json, print_now, load_data, print_exp, mkpath
 
 now = print_now(1).split(' ')[0].replace('/', '-')
+
 Result_Folder = 'result/{}'.format(now)
-if not os.path.exists('result'):
-    os.mkdir('result')
-if not os.path.exists(Result_Folder):
-    os.mkdir(Result_Folder)
+mkpath('result')
+mkpath(Result_Folder)
+mkpath(f'{Result_Folder}/{args.dataset}')
+
+Log_Folder = 'log/{}'.format(now)
+mkpath('log')
+mkpath(Log_Folder)
+mkpath(f'{Log_Folder}/{args.dataset}')
+
 
 Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
 Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
-if not os.path.exists(f'{Result_Folder}/{args.dataset}'):
-    os.mkdir(f'{Result_Folder}/{args.dataset}')
+Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.log'
+
+# logging.basicConfig(filename=Log_File)
+formatter = logging.Formatter('%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
+sh = logging.StreamHandler()
+fh = logging.FileHandler(filename=Log_File)
+fh.setFormatter(formatter)
+sh.setFormatter(formatter)
+logger = logging.getLogger()
+logger.addHandler(fh)
+logger.addHandler(sh)
 
 
 def zero_shot_cot():
@@ -36,11 +53,15 @@ def zero_shot_cot():
         inputs = construct_input(prompt, element)
         try:
             get_result, pred, error_msg = basic_runner(args, inputs, args.max_length_cot, apikey)
-        except:
+        except Exception as e:
             decode_error_data = {
                 'question': question[idx]
             }
             write_json(decode_error_data, Decoder_Error_File)
+            logger.warning(
+                f"an error raised when predicting (question id: {ids[idx]}). "
+                f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+            )
             continue
         if not get_result:
             continue
@@ -61,11 +82,15 @@ def zero_shot_cot():
                     inputs2 = input_ + ' ' + args.direct_answer_trigger_for_direct
                     try:
                         get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
-                    except:
+                    except Exception as e:
                         decode_error_data = {
                             'question': question[idx]
                         }
                         write_json(decode_error_data, Decoder_Error_File)
+                        logger.warning(
+                            f"an error raised when predicting (question id: {ids[idx]}). "
+                            f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+                        )
                         continue
                     if not get_result:
                         continue
@@ -90,11 +115,15 @@ def zero_shot_cot():
                 inputs2 = inputs + pred + ' ' + args.direct_answer_trigger_for_direct
                 try:
                     get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
-                except:
+                except Exception as e:
                     decode_error_data = {
                         'question': question[idx]
                     }
                     write_json(decode_error_data, Decoder_Error_File)
+                    logger.warning(
+                        f"an error raised when predicting (question id: {ids[idx]}). "
+                        f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+                    )
                     continue
                 if not get_result:
                     continue

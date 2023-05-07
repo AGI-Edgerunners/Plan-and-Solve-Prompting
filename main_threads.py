@@ -1,5 +1,7 @@
+import logging
 import os
 import threading
+import warnings
 from collections import Counter
 
 import openai
@@ -10,16 +12,31 @@ from prompt import get_prompt, construct_input
 from prediction_runner import basic_runner
 from utils import *
 
-
-
 now = print_now(1).split(' ')[0].replace('/', '-')
-mkpath('result')
+
 Result_Folder = 'result/{}'.format(now)
-# Result_Folder = 'result'
+mkpath('result')
 mkpath(Result_Folder)
+mkpath(f'{Result_Folder}/{args.dataset}')
+
+Log_Folder = 'log/{}'.format(now)
+mkpath('log')
+mkpath(Log_Folder)
+mkpath(f'{Log_Folder}/{args.dataset}')
+
 Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
 Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
-mkpath(f'{Result_Folder}/{args.dataset}')
+Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.log'
+
+# logging.basicConfig(filename=Log_File)
+formatter = logging.Formatter('%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
+sh = logging.StreamHandler()
+fh = logging.FileHandler(filename=Log_File)
+fh.setFormatter(formatter)
+sh.setFormatter(formatter)
+logger = logging.getLogger()
+logger.addHandler(fh)
+logger.addHandler(sh)
 
 Decoder_Error_File_Lock = threading.Lock()
 Predict_File_Lock = threading.Lock()
@@ -44,7 +61,7 @@ def thread_task(datas: tuple, args, thread_id, apikey):
         inputs = construct_input(prompt, element)
         try:
             get_result, pred, error_msg = basic_runner(args, inputs, args.max_length_cot, apikey)
-        except:
+        except Exception as e:
             decode_error_data = {
                 'question': question[idx]
             }
@@ -54,6 +71,10 @@ def thread_task(datas: tuple, args, thread_id, apikey):
             Total_Lock.acquire()
             Global_Total += 1
             Total_Lock.release()
+            logger.warning(
+                f"an error raised when predicting (question id: {ids[idx]}). "
+                f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+            )
             continue
         if not get_result:
             Total_Lock.acquire()
@@ -77,13 +98,17 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                     inputs2 = input_ + ' ' + args.direct_answer_trigger_for_direct
                     try:
                         get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
-                    except:
+                    except Exception as e:
                         decode_error_data = {
                             'question': question[idx]
                         }
                         Decoder_Error_File_Lock.acquire()
                         write_json(decode_error_data, Decoder_Error_File)
                         Decoder_Error_File_Lock.release()
+                        logger.warning(
+                            f"an error raised when predicting (question id: {ids[idx]}). "
+                            f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+                        )
                         continue
                     if not get_result:
                         continue
@@ -108,7 +133,7 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                 inputs2 = inputs + pred + ' ' + args.direct_answer_trigger_for_direct
                 try:
                     get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
-                except:
+                except Exception as e:
                     decode_error_data = {
                         'question': question[idx]
                     }
@@ -118,6 +143,10 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                     Total_Lock.acquire()
                     Global_Total += 1
                     Total_Lock.release()
+                    logger.warning(
+                        f"an error raised when predicting (question id: {ids[idx]}). "
+                        f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+                    )
                     continue
                 if not get_result:
                     Total_Lock.acquire()
@@ -316,6 +345,7 @@ class TaskThread(threading.Thread):
 
 
 if __name__ == '__main__':
+    openai.proxy = '127.0.0.1:4780'
     print_exp(args)
     alls = zero_shot_cot()
     print(alls)
