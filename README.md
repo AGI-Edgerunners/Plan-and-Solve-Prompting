@@ -1,4 +1,4 @@
-# ✍️ Plan-and-Solve-Prompting
+# 📝 Plan-and-Solve-Prompting
 
 Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
 
