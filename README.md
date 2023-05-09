@@ -29,13 +29,13 @@ python main_threads.py --prompt_id 201 \
 ## :cook: Prompts
 <table align="center">
 <tr>
-<th>prompt_id</th>
-<th>type</th>
-<th>prompt text</th>
+<th>Prompt_ID</th>
+<th>Type</th>
+<th>Trigger Sentence</th>
 </tr>
 <tr align="center">
 <td>101</td>
-<td>COT</td>
+<td>CoT</td>
 <td align="left">Let's think step by step.</td>
 </tr>
 <tr align="center">
