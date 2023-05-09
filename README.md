@@ -1,6 +1,6 @@
 # 📝 Plan-and-Solve-Prompting
 
-Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
+Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models](https://arxiv.org/abs/2305.04091)".
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=AGI-Edgerunners/Plan-and-Solve-Prompting)
 
