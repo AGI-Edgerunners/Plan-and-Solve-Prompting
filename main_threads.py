@@ -1,6 +1,7 @@
 import logging
 import os
 import threading
+import time
 import warnings
 from collections import Counter
 
@@ -126,7 +127,10 @@ def thread_task(datas: tuple, args, thread_id, apikey):
                         pred_answer1 = None
                 answer_list.append(pred_answer1)
             collection_words = Counter(answer_list)
-            pred_answer = collection_words.most_common(1)[0][0]
+            if collection_words:
+                pred_answer = collection_words.most_common(1)[0][0]
+            else:
+                pred_answer = None
         else:
             if 'Therefore, the answer is' in pred or 'The answer is' in pred:
                 if 'The answer is' in pred:
