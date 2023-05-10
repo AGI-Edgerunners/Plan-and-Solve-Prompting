@@ -3,7 +3,7 @@
 Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models](https://arxiv.org/abs/2305.04091)".
 
 <!-- ![visitors](https://visitor-badge.glitch.me/badge?page_id=AGI-Edgerunners/Plan-and-Solve-Prompting) -->
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAGI-Edgerunners%2FPlan-and-Solve-Prompting&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false" alt="Hits"></a>
+<!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAGI-Edgerunners%2FPlan-and-Solve-Prompting&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false" alt="Hits"></a> -->
 
 ![showcase_ps_prompting](math-cot-2.jpg)
 
