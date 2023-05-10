@@ -1,4 +1,4 @@
-# <img src="tasks-solid.svg" width="25" height="25"> Plan-and-Solve-Prompting
+# <img src="tasks-solid.svg" width="25" height="25" style='color:red'> Plan-and-Solve-Prompting
 
 Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models](https://arxiv.org/abs/2305.04091)".
 
