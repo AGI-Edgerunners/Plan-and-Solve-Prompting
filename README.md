@@ -1,4 +1,4 @@
-# <i class="fas fa-tasks"></i> Plan-and-Solve-Prompting
+<h1> <i class="fas fa-tasks"></i> Plan-and-Solve-Prompting </h1>
 
 Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models](https://arxiv.org/abs/2305.04091)".
 
