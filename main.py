@@ -227,14 +227,18 @@ def zero_shot_cot():
                 "ans": ans
             }
             write_json(json_data, Predict_File)
-        print('correct:{} tested:{} {} total:{}'.format(correct, idx + 1, correct / (idx + 1), len(question)))
+
+        logger.info(
+            f"correct:{correct} tested:{idx + 1} {correct / (idx + 1)} total:{len(question)}"
+        )
     return correct
 
 
 def few_shot_cot():
     correct = 0
-    apikey = args.openai_apikey
-    openai.api_key = apikey
+    apikey_list = json.load(open('apikeys.json', 'r', encoding='utf-8'))
+    assert len(apikey_list) >= 1
+    apikey = apikey_list[0]
     question, answer, ids = load_data(args)
     demos, prompt = get_prompt()
     for idx, element in enumerate(question):
@@ -245,13 +249,21 @@ def few_shot_cot():
         inputs = demos + '\n' + inputs
         try:
             get_result, pred, error_msg = basic_runner(args, inputs, args.max_length_cot, apikey)
-        except:
+        except Exception as e:
             decode_error_data = {
                 'question': question[idx]
             }
             write_json(decode_error_data, Decoder_Error_File)
+            logger.warning(
+                f"an error raised when predicting (question id: {ids[idx]}). "
+                f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+            )
             continue
         if not get_result:
+            logger.warning(
+                f"not get predicted result (question id: {ids[idx]})."
+                f"ERROR Message: {error_msg if error_msg else None}"
+            )
             continue
 
         if 'The answer is' in pred or 'the answer is' in pred:
@@ -267,13 +279,21 @@ def few_shot_cot():
             inputs2 = inputs + pred + ' ' + args.direct_answer_trigger_for_direct
             try:
                 get_result, pred3, error_msg = basic_runner(args, inputs2, 32, apikey)
-            except:
+            except Exception as e:
                 decode_error_data = {
                     'question': question[idx]
                 }
                 write_json(decode_error_data, Decoder_Error_File)
+                logger.warning(
+                    f"an error raised when predicting (question id: {ids[idx]}). "
+                    f"ERROR: {getattr(e.__class__, '__name__')}:{str(e)}"
+                )
                 continue
             if not get_result:
+                logger.warning(
+                    f"not get predicted result (question id: {ids[idx]})."
+                    f"ERROR Message: {error_msg if error_msg else None}"
+                )
                 continue
             try:
                 pred_answer = extract_answer(args, pred3)
@@ -363,7 +383,10 @@ def few_shot_cot():
                 "ans": ans
             }
             write_json(json_data, Predict_File)
-        print('correct:{} tested:{} total:{}'.format(correct, idx + 1, len(question)))
+
+        logger.info(
+            f"correct:{correct} tested:{idx + 1} {correct / (idx + 1)} total:{len(question)}"
+        )
     return correct
 
 
@@ -373,4 +396,4 @@ if __name__ == '__main__':
         alls = zero_shot_cot()
     else:
         alls = few_shot_cot()
-    print(alls)
+    logger.info(f"correct num: {alls}")

@@ -1,7 +1,10 @@
 # 📝 Plan-and-Solve-Prompting
 
-Code for our ACL 2023 Paper "Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models".
+Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models](https://arxiv.org/abs/2305.04091)".
 
+![visitors](https://visitor-badge.glitch.me/badge?page_id=AGI-Edgerunners/Plan-and-Solve-Prompting)
+
+![showcase_ps_prompting](math-cot-2.jpg)
 
 ## :robot: Run Plan-and-Solve-Prompting
 Set an api-key of OpenAI API in the file ```apikeys.json```
@@ -21,16 +24,18 @@ python main_threads.py --prompt_id 201 \
 --learning_type zero_shot
 ```
 
+![showcase_ps_prompting_exp](math-cot-exp.png)
+
 ## :cook: Prompts
 <table align="center">
 <tr>
-<th>prompt_id</th>
-<th>type</th>
-<th>prompt text</th>
+<th>Prompt_ID</th>
+<th>Type</th>
+<th>Trigger Sentence</th>
 </tr>
 <tr align="center">
 <td>101</td>
-<td>COT</td>
+<td>CoT</td>
 <td align="left">Let's think step by step.</td>
 </tr>
 <tr align="center">
@@ -84,7 +89,14 @@ python main_threads.py --prompt_id 201 \
 If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
 
 ```latex
-
+@misc{wang2023planandsolve,
+    title={Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models},
+    author={Lei Wang and Wanyu Xu and Yihuai Lan and Zhiqiang Hu and Yunshi Lan and Roy Ka-Wei Lee and Ee-Peng Lim},
+    year={2023},
+    eprint={2305.04091},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
 ```
 
 

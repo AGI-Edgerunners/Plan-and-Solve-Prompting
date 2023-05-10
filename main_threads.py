@@ -301,12 +301,11 @@ def thread_task(datas: tuple, args, thread_id, apikey):
             Total_Lock.acquire()
             Global_Total += 1
             Total_Lock.release()
-        print(
-            'thread:{} correct:{} tested:{} {} total:{} global correct/total:{}/{}'.format(thread_id, correct, idx + 1,
-                                                                                           correct / (idx + 1),
-                                                                                           len(question),
-                                                                                           Global_Correct,
-                                                                                           Global_Total))
+
+        logger.info(
+            f"thread:{thread_id} | correct:{correct} tested:{idx + 1} {correct / (idx + 1)} total:{len(question)} | "
+            f"global correct/total:{Global_Correct}/{Global_Total}"
+        )
     return correct
 
 
@@ -363,4 +362,4 @@ class TaskThread(threading.Thread):
 if __name__ == '__main__':
     print_exp(args)
     alls = zero_shot_cot()
-    print(alls)
+    logger.info(f"correct num: {alls}")
