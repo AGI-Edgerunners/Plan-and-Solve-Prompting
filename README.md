@@ -5,7 +5,7 @@ Code for our ACL 2023 Paper "[Plan-and-Solve Prompting: Improving Zero-Shot Chai
 <!-- ![visitors](https://visitor-badge.glitch.me/badge?page_id=AGI-Edgerunners/Plan-and-Solve-Prompting) -->
 <!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAGI-Edgerunners%2FPlan-and-Solve-Prompting&count_bg=%23E97EBA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false" alt="Hits"></a> -->
 
-🔥 We are honored to announce that Plan-and-Solve Prompting has been added to the core library of <a style="color: #447ec9" href="https://github.com/hwchase17/langchain">LangChain</a>, that is <a style="color: #447ec9" href="https://blog.langchain.dev/plan-and-execute-agents/">Plan-and-Execute</a>. Find out what people are saying about it on <a style="color: #447ec9" href="https://twitter.com/hwchase17/status/1656327621335195648">Twitter</a>.
+🔥 We are honored to announce that Plan-and-Solve Prompting has been added to the core library of <a style="color: #447ec9" href="https://github.com/hwchase17/langchain">LangChain</a>, that is, <a style="color: #447ec9" href="https://blog.langchain.dev/plan-and-execute-agents/">Plan-and-Execute</a>. Find out what people are saying about it on <a style="color: #447ec9" href="https://twitter.com/hwchase17/status/1656327621335195648">Twitter</a>.
 
 ![showcase_ps_prompting](math-cot-2.jpg)
 
