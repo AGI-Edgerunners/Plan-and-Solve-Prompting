@@ -19,7 +19,7 @@ python main.py --prompt_id 201 \
 ```
 
 ## :robot: Run Plan-and-Solve-Prompting with threads
-Set 8 different api-keys of OpenAI API in the file ```apikeys.json```
+For faster inference, set 8 different api-keys of OpenAI API in the file ```apikeys.json```
 ```shell
 python main_threads.py --prompt_id 201 \
 --dataset SVAMP \
