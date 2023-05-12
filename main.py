@@ -42,7 +42,7 @@ logger.addHandler(sh)
 def zero_shot_cot():
     correct = 0
     apikey_list = json.load(open('apikeys.json', 'r', encoding='utf-8'))
-    assert len(apikey_list) >= 1
+    assert len(apikey_list) >= 1, f"need 1 apikey, find {len(apikey_list)} in '/apikeys.json'"
     apikey = apikey_list[0]
     question, answer, ids = load_data(args)
     _, prompt = get_prompt()
