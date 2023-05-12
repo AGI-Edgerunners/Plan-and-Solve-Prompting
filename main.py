@@ -1,6 +1,4 @@
 import json
-import os
-import warnings
 import logging
 from collections import Counter
 import openai
@@ -24,9 +22,9 @@ mkpath(Log_Folder)
 mkpath(f'{Log_Folder}/{args.dataset}')
 
 
-Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
-Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
-Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.log'
+Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}-SC-{args.SC}_deco.json'
+Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}-SC-{args.SC}.json'
+Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}-SC-{args.SC}.log'
 
 # logging.basicConfig(filename=Log_File)
 formatter = logging.Formatter('%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')

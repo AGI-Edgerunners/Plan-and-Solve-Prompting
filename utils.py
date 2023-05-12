@@ -1,15 +1,14 @@
 import json
 import datetime
-import numpy as np
-import random
-import torch
 import os
 
 Dataset_Folder = 'dataset'
 
+
 def mkpath(path):
     if not os.path.exists(path):
         os.mkdir(path)
+
 
 def print_now(return_flag=0):
     t_delta = datetime.timedelta(hours=9)
@@ -44,7 +43,7 @@ def load_data(args):
     questions = []
     answers = []
     ids = []
-    datapath = args.datapath if args.datapath else '{}/{}/{}.json'.format(Dataset_Folder, args.dataset,args.dataset)
+    datapath = args.datapath if args.datapath else '{}/{}/{}.json'.format(Dataset_Folder, args.dataset, args.dataset)
     if args.dataset == 'gsm8k_zct_8':
         questions, rational, answers = [], [], []
         datapath = 'result/ours/text003/gsm8k_zct_1_10_8.json'
@@ -93,7 +92,7 @@ def load_data(args):
                     else:
                         a = "no"
                     id = 'temp_{}'.format(idx)
-                elif args.dataset.lower() in ['coin_flip','last_letters']:
+                elif args.dataset.lower() in ['coin_flip', 'last_letters']:
                     q = line["question"]
                     a = line["answer"]
                     id = 'temp_{}'.format(idx)
@@ -139,7 +138,7 @@ def load_data(args):
                 questions.append(q)
                 answers.append(a)
                 ids.append(id)
-    elif args.dataset.lower() in ['finqa','convfinqa']:
+    elif args.dataset.lower() in ['finqa', 'convfinqa']:
         with open(datapath) as f:
             json_data = json.load(f)
             for idx, line in enumerate(json_data):
@@ -155,7 +154,7 @@ def load_data(args):
                     q = 'Question: {}\n'.format(line['question'])
                     a = line['answer']
                     id = 'temp_{}'.format(idx)
-                questions.append(text+table+q)
+                questions.append(text + table + q)
                 answers.append(a)
                 ids.append(id)
     else:
@@ -164,7 +163,11 @@ def load_data(args):
     if args.test_end == 'full':
         return questions[int(args.test_start):], answers[int(args.test_start):], ids[int(args.test_start):]
     else:
-        return questions[int(args.test_start):int(args.test_end)], answers[int(args.test_start):int(args.test_end)], ids[int(args.test_start):int(args.test_end)]
+        return questions[int(args.test_start):int(args.test_end)], answers[
+                                                                   int(args.test_start):int(args.test_end)], ids[
+                                                                                                             int(args.test_start):int(
+                                                                                                                 args.test_end)]
+
 
 # def load_data(args):
 #     decoder = json.JSONDecoder()
@@ -285,13 +288,12 @@ def write_json(data, path):
     json.dump(data, f, indent=4, ensure_ascii=False)
     f.close()
 
-
-def fix_seed(seed):
-    # random
-    random.seed(seed)
-    # Numpy
-    np.random.seed(seed)
-    # Pytorch
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.backends.cudnn.deterministic = True
+# def fix_seed(seed):
+#     # random
+#     random.seed(seed)
+#     # Numpy
+#     np.random.seed(seed)
+#     # Pytorch
+#     torch.manual_seed(seed)
+#     torch.cuda.manual_seed_all(seed)
+#     torch.backends.cudnn.deterministic = True

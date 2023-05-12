@@ -1,8 +1,6 @@
+import json
 import logging
-import os
 import threading
-import time
-import warnings
 from collections import Counter
 
 import openai
@@ -11,7 +9,7 @@ from config import args
 from extracter import extract_answer, get_precision
 from prompt import get_prompt, construct_input
 from prediction_runner import basic_runner
-from utils import *
+from utils import write_json, print_now, mkpath, print_exp, load_data
 
 now = print_now(1).split(' ')[0].replace('/', '-')
 
@@ -25,9 +23,9 @@ mkpath('log')
 mkpath(Log_Folder)
 mkpath(f'{Log_Folder}/{args.dataset}')
 
-Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}_deco.json'
-Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.json'
-Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}.log'
+Decoder_Error_File = f'{Result_Folder}/{args.learning_type}-{args.dataset}-{args.prompt_id}-{args.engine}-SC-{args.SC}_deco.json'
+Predict_File = f'{Result_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}-SC-{args.SC}.json'
+Log_File = f'{Log_Folder}/{args.dataset}/{args.learning_type}-{args.prompt_id}-{args.engine}-SC-{args.SC}.log'
 
 # logging.basicConfig(filename=Log_File)
 formatter = logging.Formatter('%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')

@@ -123,6 +123,7 @@ prompt_307 = "Let's first understand the problem, extract relevant variables and
              "(pay attention to correct numerical calculation and commonsense), " \
              "solve the problem step by step, and show the answer."
 
+
 def get_prompt():
     if args.learning_type == 'zero_shot':
         try:
