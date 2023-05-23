@@ -92,13 +92,11 @@ python main_threads.py --prompt_id 201 \
 If you find **Plan-and-Solve-Prompting** useful for your research and applications, please kindly cite using this BibTeX:
 
 ```latex
-@misc{wang2023planandsolve,
-    title={Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models},
-    author={Lei Wang and Wanyu Xu and Yihuai Lan and Zhiqiang Hu and Yunshi Lan and Roy Ka-Wei Lee and Ee-Peng Lim},
-    year={2023},
-    eprint={2305.04091},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@article{wang2023plan,
+  title={Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought Reasoning by Large Language Models},
+  author={Wang, Lei and Xu, Wanyu and Lan, Yihuai and Hu, Zhiqiang and Lan, Yunshi and Lee, Roy Ka-Wei and Lim, Ee-Peng},
+  journal={arXiv preprint arXiv:2305.04091},
+  year={2023}
 }
 ```
 
